@@ -1,0 +1,6 @@
+Explicacion del dockerfile para go
+
+>go run src/Presentation/main.go
+
+---- or ----
+> air #> install go install github.com/cosmtrek/air@latest
