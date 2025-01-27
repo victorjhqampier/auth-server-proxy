@@ -8,7 +8,7 @@ COPY go.sum .
 RUN go mod download
 COPY src/ src/
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./src/Presentation
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./src/presentation
 
 # Etapa de producción
 FROM scratch
