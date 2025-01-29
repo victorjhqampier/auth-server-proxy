@@ -11,7 +11,14 @@ COPY src/ src/
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./src/presentation
 
 # Etapa de producción
-FROM scratch
-COPY --from=build /app/main /app/main
+
+#FROM scratch
+#COPY --from=build /app/main /app/main
+#WORKDIR /app
+#CMD ["./main"]
+
+FROM alpine:latest
 WORKDIR /app
+RUN apk --no-cache add ca-certificates
+COPY --from=build /app/main /app/main
 CMD ["./main"]
